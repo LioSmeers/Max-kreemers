@@ -1,0 +1,19 @@
+.hero h1 { letter-spacing: -.05em; }
+.scroll-progress { position: fixed; top: 0; left: 0; z-index: 100; width: 100%; height: 3px; background: #007dba; transform: scaleX(var(--scroll-progress, 0)); transform-origin: left; pointer-events: none; }
+.motion-frame { overflow: hidden; }
+.motion-frame img.motion-image { transform: translateY(var(--image-offset, 0px)) scale(var(--image-scale, 1.08)); transition: transform .45s ease-out; }
+.motion-frame:hover { --image-scale: 1.11; }
+.portrait-stage { transform: translateY(var(--portrait-offset, 0px)); }
+.motion-entry { transition: opacity .65s ease, translate .65s cubic-bezier(.2,.7,.3,1); }
+.motion-entry.motion-pending { opacity: 0; translate: 0 24px; }
+.service.motion-entry:nth-child(2), .approach-steps li.motion-entry:nth-child(2) { transition-delay: .07s; }
+.motion-frame:focus-within { --image-scale: 1.11; }
+.project-button, .solid-button { transition: background .2s, translate .2s; }
+.project-button:hover, .solid-button:hover { translate: 0 -3px; }
+@media (prefers-reduced-motion: reduce) {
+ .motion-entry.motion-pending { opacity: 1; translate: none; }
+ .motion-entry, .motion-frame img.motion-image { transition: none; }
+ .motion-frame img.motion-image, .portrait-stage { transform: none; }
+ .project-button:hover, .solid-button:hover { translate: none; }
+ .scroll-progress { display: none; }
+}

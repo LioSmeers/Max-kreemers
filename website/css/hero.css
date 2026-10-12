@@ -1,0 +1,45 @@
+.hero { position: relative; isolation: isolate; overflow: hidden; background: #050d19; color: #fff; min-height: max(660px, calc(100svh - 136px)); display: flex; flex-direction: column; justify-content: center; }
+.hero-media { position: absolute; z-index: -2; inset: 0; background: #050d19; opacity: .2; pointer-events: none; }
+.hero-video { width: 100%; height: 100%; display: block; object-fit: cover; object-position: 54% center; }
+.hero-content { width: 100%; padding: 80px 48px 104px max(48px, calc((100vw - 1184px) / 2)); }
+.hero-eyebrow { display: flex; align-items: center; gap: 12px; margin: 0 0 44px; font-size: 12px; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; }
+.signal-dot { width: 6px; height: 6px; border-radius: 50%; background: #55d9fb; box-shadow: 0 0 12px #55d9fb; }
+.eyebrow-location { margin-left: 16px; font-weight: 400; color: #9eaaba; letter-spacing: .04em; }
+.hero h1 { margin: 0; font-size: clamp(52px, 5.8vw, 90px); line-height: 1.04; letter-spacing: -.065em; font-weight: 500; }
+.title-line { position: relative; display: block; width: fit-content; overflow: hidden; padding: 0 .08em .1em 0; }
+.title-line > span { display: block; }
+.title-line.accent { color: #65daf6; }
+.hero-description { max-width: 395px; margin: 30px 32px 0 0; color: #b7c2ce; font-size: 16px; line-height: 1.75; }
+.hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 24px 30px; margin-top: 36px; }
+.hero-actions a { color: #fff; text-decoration: none; font-size: 14px; }
+.project-button { display: flex; justify-content: space-between; align-items: center; gap: 30px; min-height: 56px; padding: 16px 22px; background: #006baf; transition: background .2s; }
+.project-button:hover { background: #00588f; }
+.project-button span { font-size: 22px; }
+.projects-link { display: flex; align-items: center; gap: 14px; min-height: 44px; border-bottom: 1px solid #596270; }
+.projects-link:hover { border-color: #65daf6; color: #65daf6; }
+.hero a:focus-visible { outline: 2px solid #65daf6; outline-offset: 5px; }
+.hero-bottom { position: absolute; bottom: 0; left: 0; width: 100%; padding: 25px max(48px, calc((100vw - 1184px) / 2)); display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.hero-bottom p { color: #9eaaba; font-size: 11px; letter-spacing: .035em; margin: 0; }
+.hero.entering .title-line > span { animation: connect-text 1s cubic-bezier(.16,1,.3,1) both; }
+.hero.entering .title-line.accent > span { animation-delay: .25s; }
+.hero.entering .title-line::after { content: ''; position: absolute; inset: 0 auto 0 0; width: 2px; background: #8becff; box-shadow: 0 0 22px 6px #37c9eb; animation: current-pulse 1s ease-out both; pointer-events: none; }
+.hero.entering .title-line.accent::after { animation-delay: .25s; }
+@keyframes connect-text { from { clip-path: inset(0 100% 0 0); transform: translateY(12px); } to { clip-path: inset(0); transform: translateY(0); } }
+@keyframes current-pulse { 0% { left: 0; opacity: 0; } 12% { opacity: 1; } 85% { opacity: .8; } 100% { left: 100%; opacity: 0; } }
+@media (max-width: 1000px) { .hero-content { padding-inline: 32px; } .hero-bottom { padding-inline: 32px; } .hero-eyebrow { gap: 9px; } .eyebrow-location { margin-left: 0; } }
+@media (max-width: 700px) {
+  .hero { min-height: 0; justify-content: flex-start; }
+  .hero-content { width: 100%; padding: 48px 24px 52px; }
+  .hero-eyebrow { margin-bottom: 28px; font-size: 10px; gap: 8px; }
+  .eyebrow-location { margin-left: auto; font-size: 9px; }
+  .hero h1 { font-size: clamp(39px, 10.5vw, 64px); letter-spacing: -.06em; }
+  .hero-description { margin-top: 22px; margin-right: 0; max-width: 430px; font-size: 14px; line-height: 1.65; }
+  .hero-actions { margin-top: 24px; gap: 15px 24px; }
+  .project-button { min-height: 52px; padding: 13px 18px; }
+  .hero-actions a { font-size: 12px; }
+  .hero-media { opacity: .16; }
+  .hero-video { object-position: center; }
+  .hero-bottom { position: relative; order: 3; padding: 12px 24px; gap: 12px; }
+  .hero-bottom p { max-width: 300px; font-size: 10px; line-height: 1.5; }
+}
+@media (prefers-reduced-motion: reduce) { .hero *, .hero *::after { animation: none !important; transition: none !important; } }
