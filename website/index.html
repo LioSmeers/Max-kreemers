@@ -7,11 +7,14 @@
   <meta name="description" content="Kreemers Elektro — elektriciteit, renovatie en domotica in Hasselt en Limburg.">
   <link rel="stylesheet" href="css/header.css?v=3">
   <link rel="stylesheet" href="css/hero.css?v=2">
+  <link rel="stylesheet" href="css/hero-switch.css?v=2">
   <link rel="stylesheet" href="css/services.css">
   <link rel="stylesheet" href="css/showcase.css">
+  <link rel="stylesheet" href="css/current-line.css?v=3">
+  <script src="js/current-line.js?v=2" defer></script>
   <script src="js/header.js" defer></script>
-  <script src="js/hero.js?v=3" defer></script>
-<link rel="stylesheet" href="css/motion.css"><script src="js/motion.js" defer></script></head>
+  <script src="js/hero.js?v=4" defer></script>
+<link rel="stylesheet" href="css/motion.css"><script src="js/motion.js?v=2" defer></script><link rel="stylesheet" href="css/footer.css"><noscript><link rel="stylesheet" href="css/no-script.css"></noscript><link rel="stylesheet" href="css/showcase-hotspots.css"><script src="js/showcase-hotspots.js" defer></script></head>
 <body>
   <header class="site-header">
     <nav class="header-inner" aria-label="Hoofdnavigatie">
@@ -46,6 +49,11 @@
         <div class="hero-actions">
           <a class="project-button" href="contact.html">Bespreek je project</a>
           <a class="projects-link" href="realisaties.html">Bekijk realisaties</a>
+          <div class="hero-light-control" hidden>
+            <button class="hero-light-switch" type="button" aria-pressed="true">
+              <span class="hero-switch-label">Zet het licht eens uit.</span>
+            </button>
+          </div>
         </div>
       </div>
       <div class="hero-bottom">
@@ -90,6 +98,7 @@
         <header class="showcase-heading">
           <p class="showcase-eyebrow">Realisaties</p>
           <h2 id="showcase-title">Neon, verlichting en de bedrading erachter.</h2>
+          <p class="showcase-hint" hidden>Klik op de punten en ontdek de details.</p>
         </header>
         <div class="showcase-grid">
           <figure class="showcase-project showcase-featured">
@@ -102,22 +111,47 @@
               <p>Voor Odette Lunettes bracht Max het neonbord onder stroom.</p>
             </figcaption>
           </figure>
-          <figure class="showcase-project showcase-secondary">
+          <figure class="showcase-project showcase-secondary hotspot-project">
+            <div class="hotspot-stage" data-source-x="530" data-source-y="458" data-source-width="1086" data-source-height="1448">
             <a class="showcase-photo" href="realisaties.html#selection-title" aria-label="Bekijk de railverlichting op de pagina Realisaties">
               <img src="assets/realisaties/railverlichting-woonkamer-nieuw.webp" alt="Railverlichting aan het plafond met licht op de wand" width="900" height="1200" loading="lazy" decoding="async">
             </a>
+              <div class="hotspot-layer" hidden>
+                <button class="hotspot-button" type="button" aria-expanded="false" aria-controls="hotspot-rail" aria-label="Toelichting bij railverlichting" hidden><span aria-hidden="true"></span></button>
+              </div>
+            </div>
+            <div class="hotspot-card" id="hotspot-rail" role="region" aria-labelledby="hotspot-title-rail" hidden>
+              <div class="hotspot-card-heading"><h4 id="hotspot-title-rail">Railverlichting</h4><button class="hotspot-close" type="button" aria-label="Sluit toelichting bij railverlichting">Sluiten</button></div>
+              <p>De spots zitten op de zwarte plafondrail.</p>
+            </div>
             <figcaption><span class="showcase-number" aria-hidden="true">02</span><h3>Railverlichting</h3></figcaption>
           </figure>
-          <figure class="showcase-project showcase-detail">
+          <figure class="showcase-project showcase-detail hotspot-project">
+            <div class="hotspot-stage" data-source-x="680" data-source-y="550" data-source-width="900" data-source-height="1200">
             <a class="showcase-photo" href="realisaties.html#selection-title" aria-label="Bekijk de bedrading op de pagina Realisaties">
               <img src="assets/realisaties/zekeringkast-detail-bedrading.webp" alt="Detail van de bedrading in een verdeelbord van Kreemers Elektro" width="900" height="1200" loading="lazy" decoding="async">
             </a>
+              <div class="hotspot-layer" hidden>
+                <button class="hotspot-button" type="button" aria-expanded="false" aria-controls="hotspot-wires" aria-label="Toelichting bij bedrading" hidden><span aria-hidden="true"></span></button>
+              </div>
+            </div>
+            <div class="hotspot-card" id="hotspot-wires" role="region" aria-labelledby="hotspot-title-wires" hidden>
+              <div class="hotspot-card-heading"><h4 id="hotspot-title-wires">Bedrading</h4><button class="hotspot-close" type="button" aria-label="Sluit toelichting bij bedrading">Sluiten</button></div>
+              <p>Rode en blauwe draden lopen tussen de rijen in het verdeelbord.</p>
+            </div>
             <figcaption><span class="showcase-number" aria-hidden="true">03</span><h3>Bedrading in detail</h3></figcaption>
           </figure>
         </div>
         <a class="showcase-all" href="realisaties.html">Bekijk alle realisaties</a>
       </div>
     </section>
+    <svg class="current-line" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" hidden>
+      <path class="current-line-track" fill="none" />
+      <path class="current-line-fill" fill="none" />
+      <circle class="current-line-point" data-current-point="services" r="3" />
+      <circle class="current-line-point" data-current-point="showcase" r="3" />
+    </svg>
   </main>
+  <footer class="site-footer"><a class="footer-brand" href="index.html">Kreemers Elektro</a><p>Nieuwbouw · Renovatie · Domotica<br>Kermt · Hasselt · Limburg</p><div><a href="mailto:max@kreemerselektro.be">max@kreemerselektro.be</a><a href="tel:+32487371681">0487 37 16 81</a></div><p class="footer-small">BE1024571408</p></footer>
 </body>
 </html>

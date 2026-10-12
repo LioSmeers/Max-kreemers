@@ -1,0 +1,208 @@
+{
+  "baseline": {
+    "390": {
+      "height": 3316,
+      "sections": [
+        {
+          "class": "hero entering",
+          "height": 484.203125,
+          "top": 99
+        },
+        {
+          "class": "services",
+          "height": 1117.8125,
+          "top": 583.203125
+        },
+        {
+          "class": "showcase",
+          "height": 1350.53125,
+          "top": 1701.015625
+        },
+        {
+          "class": "site-footer",
+          "height": 264.453125,
+          "top": 3051.546875
+        }
+      ],
+      "width": 390
+    },
+    "1280": {
+      "height": 2989,
+      "sections": [
+        {
+          "class": "hero entering",
+          "height": 764,
+          "top": 137
+        },
+        {
+          "class": "services",
+          "height": 795.21875,
+          "top": 901
+        },
+        {
+          "class": "showcase",
+          "height": 1161.484375,
+          "top": 1696.21875
+        },
+        {
+          "class": "site-footer",
+          "height": 131.78125,
+          "top": 2857.703125
+        }
+      ],
+      "width": 1280
+    }
+  },
+  "checks": [
+    {
+      "stage": "desktop-start",
+      "d": "M 16 0 L 16 92.796875 Q 16 100.796875 22 100.796875 L 26 100.796875 Q 32 100.796875 32 106.796875 L 32 134.796875 Q 32 140.796875 26 140.796875 L 22 140.796875 Q 16 140.796875 16 148.796875 L 16 880.015625 Q 16 888.015625 22 888.015625 L 26 888.015625 Q 32 888.015625 32 894.015625 L 32 922.015625 Q 32 928.015625 26 928.015625 L 22 928.015625 Q 16 928.015625 16 936.015625 L 16 1988.703125",
+      "height": 2989,
+      "hidden": false,
+      "length": "2033.29, 2033.29",
+      "offset": "2033.29",
+      "overflow": false,
+      "points": [
+        {
+          "active": false,
+          "x": "32",
+          "y": "120.796875"
+        },
+        {
+          "active": false,
+          "x": "32",
+          "y": "908.015625"
+        }
+      ],
+      "sections": [
+        {
+          "class": "hero entering",
+          "height": 764,
+          "top": 137
+        },
+        {
+          "class": "services",
+          "height": 795.21875,
+          "top": 901
+        },
+        {
+          "class": "showcase",
+          "height": 1161.484375,
+          "top": 1696.21875
+        },
+        {
+          "class": "site-footer",
+          "height": 131.78125,
+          "top": 2857.703125
+        }
+      ],
+      "width": 1280
+    },
+    {
+      "stage": "desktop-services",
+      "offset": "1311.78",
+      "points": [
+        true,
+        false
+      ],
+      "scrollY": 900
+    },
+    {
+      "stage": "desktop-end",
+      "offset": "0.525098",
+      "points": [
+        true,
+        true
+      ],
+      "scrollY": 2089
+    },
+    {
+      "stage": "mobile-start",
+      "d": "M 10 0 L 10 2500.34375",
+      "height": 3316,
+      "hidden": false,
+      "minimumContentX": 24,
+      "overflow": false,
+      "points": [
+        {
+          "x": "10",
+          "y": "76.796875"
+        },
+        {
+          "x": "10",
+          "y": "1194.609375"
+        }
+      ],
+      "sections": [
+        {
+          "class": "hero entering",
+          "height": 484.203125,
+          "top": 99
+        },
+        {
+          "class": "services",
+          "height": 1117.8125,
+          "top": 583.203125
+        },
+        {
+          "class": "showcase",
+          "height": 1350.53125,
+          "top": 1701.015625
+        },
+        {
+          "class": "site-footer",
+          "height": 264.453125,
+          "top": 3051.546875
+        }
+      ],
+      "width": 390
+    },
+    {
+      "stage": "mobile-end",
+      "offset": "0",
+      "points": [
+        true,
+        true
+      ]
+    },
+    {
+      "stage": "mobile-return",
+      "offset": "2476.7",
+      "points": [
+        false,
+        false
+      ]
+    },
+    {
+      "stage": "reduced-motion",
+      "hidden": false,
+      "matches": true,
+      "offset": "0",
+      "pointerEvents": "none",
+      "points": [
+        {
+          "active": true,
+          "transition": "0s"
+        },
+        {
+          "active": true,
+          "transition": "0s"
+        }
+      ]
+    },
+    {
+      "stage": "narrow",
+      "display": "none",
+      "hidden": true,
+      "width": 320
+    },
+    {
+      "stage": "desktop-final",
+      "contentLeft": 48,
+      "lineRight": 35,
+      "offset": "0",
+      "overflow": false,
+      "width": 1280
+    }
+  ]
+}

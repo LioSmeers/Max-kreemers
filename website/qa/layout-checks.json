@@ -1,0 +1,230 @@
+{
+  "mobileMenus": [
+    {
+      "page": "index.html",
+      "closed": {
+        "expanded": "false",
+        "links": [
+          "none",
+          "none"
+        ]
+      },
+      "opened": {
+        "expanded": "true",
+        "links": [
+          "flex",
+          "flex"
+        ]
+      },
+      "escaped": "false",
+      "active": [
+        "index.html"
+      ],
+      "closedAfterClick": "false",
+      "footer": 1,
+      "overflow": false,
+      "wide": [],
+      "width": 390
+    },
+    {
+      "page": "contact.html",
+      "closed": {
+        "expanded": "false",
+        "links": [
+          "none",
+          "none"
+        ]
+      },
+      "opened": {
+        "expanded": "true",
+        "links": [
+          "flex",
+          "flex"
+        ]
+      },
+      "escaped": "false",
+      "active": [
+        "contact.html"
+      ],
+      "closedAfterClick": "false",
+      "footer": 1,
+      "overflow": false,
+      "wide": [],
+      "width": 390
+    },
+    {
+      "page": "realisaties.html",
+      "closed": {
+        "expanded": "false",
+        "links": [
+          "none",
+          "none"
+        ]
+      },
+      "opened": {
+        "expanded": "true",
+        "links": [
+          "flex",
+          "flex"
+        ]
+      },
+      "escaped": "false",
+      "active": [
+        "realisaties.html"
+      ],
+      "closedAfterClick": "false",
+      "footer": 1,
+      "overflow": false,
+      "wide": [],
+      "width": 390
+    },
+    {
+      "page": "over-max.html",
+      "closed": {
+        "expanded": "false",
+        "links": [
+          "none",
+          "none"
+        ]
+      },
+      "opened": {
+        "expanded": "true",
+        "links": [
+          "flex",
+          "flex"
+        ]
+      },
+      "escaped": "false",
+      "active": [
+        "over-max.html"
+      ],
+      "closedAfterClick": "false",
+      "footer": 1,
+      "overflow": false,
+      "wide": [],
+      "width": 390
+    }
+  ],
+  "desktop": [
+    {
+      "page": "index.html",
+      "active": [
+        "index.html"
+      ],
+      "brokenImages": [],
+      "footerColumns": "344.75px 313.406px 376.109px 65.7344px",
+      "menuDisplay": "none",
+      "navDisplay": [
+        "flex",
+        "flex"
+      ],
+      "overflow": false,
+      "width": 1280
+    },
+    {
+      "page": "contact.html",
+      "active": [
+        "contact.html"
+      ],
+      "brokenImages": [],
+      "footerColumns": "344.75px 313.406px 376.109px 65.7344px",
+      "menuDisplay": "none",
+      "navDisplay": [
+        "flex",
+        "flex"
+      ],
+      "overflow": false,
+      "width": 1280
+    },
+    {
+      "page": "realisaties.html",
+      "active": [
+        "realisaties.html"
+      ],
+      "brokenImages": [],
+      "footerColumns": "344.75px 313.406px 376.109px 65.7344px",
+      "menuDisplay": "none",
+      "navDisplay": [
+        "flex",
+        "flex"
+      ],
+      "overflow": false,
+      "width": 1280
+    },
+    {
+      "page": "over-max.html",
+      "active": [
+        "over-max.html"
+      ],
+      "brokenImages": [],
+      "footerColumns": "344.75px 313.406px 376.109px 65.7344px",
+      "menuDisplay": "none",
+      "navDisplay": [
+        "flex",
+        "flex"
+      ],
+      "overflow": false,
+      "width": 1280
+    }
+  ],
+  "desktopConsole": [
+    {
+      "page": "index.html",
+      "logs": []
+    },
+    {
+      "page": "contact.html",
+      "logs": []
+    },
+    {
+      "page": "realisaties.html",
+      "logs": []
+    },
+    {
+      "page": "over-max.html",
+      "logs": []
+    }
+  ],
+  "mobile": [
+    {
+      "page": "index.html",
+      "brokenImages": [],
+      "footerColumns": "342px",
+      "hiddenMainContent": [],
+      "overflow": false,
+      "width": 390,
+      "console": []
+    },
+    {
+      "page": "contact.html",
+      "brokenImages": [],
+      "footerColumns": "342px",
+      "hiddenMainContent": [],
+      "overflow": false,
+      "width": 390,
+      "console": []
+    },
+    {
+      "page": "realisaties.html",
+      "brokenImages": [],
+      "footerColumns": "342px",
+      "hiddenMainContent": [],
+      "overflow": false,
+      "width": 390,
+      "console": []
+    },
+    {
+      "page": "over-max.html",
+      "brokenImages": [],
+      "footerColumns": "342px",
+      "hiddenMainContent": [],
+      "overflow": false,
+      "width": 390,
+      "console": []
+    }
+  ],
+  "localPaths": {
+    "checked": 48,
+    "failures": []
+  }
+}

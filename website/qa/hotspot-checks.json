@@ -1,0 +1,111 @@
+[
+  {
+    "stage": "desktop-rail",
+    "cardInline": false,
+    "expanded": "true",
+    "nestedButtons": 0,
+    "open": 1,
+    "overflow": false,
+    "url": "/index.html",
+    "width": 1280
+  },
+  {
+    "stage": "desktop-wires",
+    "open": 1,
+    "railExpanded": "false",
+    "wiresExpanded": "true"
+  },
+  {
+    "stage": "escape",
+    "focus": "Toelichting bij bedrading",
+    "open": 0
+  },
+  {
+    "stage": "toggle-keyboard",
+    "expanded": "false",
+    "open": 0
+  },
+  {
+    "stage": "close-button",
+    "focus": "Toelichting bij railverlichting",
+    "open": 0
+  },
+  {
+    "stage": "outside-click",
+    "open": 0
+  },
+  {
+    "stage": "mobile-rail",
+    "belowPhoto": true,
+    "buttonHeight": 48.7882080078125,
+    "buttonWidth": 48.78822326660156,
+    "open": 1,
+    "overflow": false,
+    "photoRatio": 1.3333333333333333,
+    "url": "/index.html",
+    "width": 390
+  },
+  {
+    "stage": "mobile-wires",
+    "belowPhoto": true,
+    "open": 1,
+    "overflow": false,
+    "photoRatio": 1.6
+  },
+  {
+    "stage": "mobile-source-alignment",
+    "geometry": [
+      {
+        "buttonHeight": 47.52000427246094,
+        "buttonWidth": 47.519989013671875,
+        "name": "Toelichting bij railverlichting",
+        "xError": 0.016674062823710756,
+        "yError": 0.013681391089008343
+      },
+      {
+        "buttonHeight": 48.839996337890625,
+        "buttonWidth": 48.84002685546875,
+        "name": "Toelichting bij bedrading",
+        "xError": 0.010397677951402784,
+        "yError": 0.0013758002387476154
+      }
+    ]
+  },
+  {
+    "stage": "no-js",
+    "cardsHidden": true,
+    "nestedButtons": 0,
+    "photoLinks": [
+      "realisaties.html#selection-title",
+      "realisaties.html#selection-title"
+    ],
+    "pointsHidden": true
+  },
+  {
+    "stage": "desktop-source-alignment",
+    "geometry": [
+      {
+        "target": [
+          48.8115234375,
+          48.811492919921875
+        ],
+        "xError": 0.004846393732805154,
+        "yError": 0.01550993355601804
+      },
+      {
+        "target": [
+          47.52001953125,
+          47.52001953125
+        ],
+        "xError": 0.008353678385446983,
+        "yError": 0.0009834798177053017
+      }
+    ]
+  },
+  {
+    "stage": "reduced-motion",
+    "open": 1,
+    "pointSize": 44,
+    "transform": "none"
+  }
+]

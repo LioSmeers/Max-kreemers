@@ -1,0 +1,20 @@
+.hero { transition: background-color 650ms ease; }
+.hero-media { transition: opacity 650ms ease; }
+.hero.is-light-off { background-color: #030913; }
+.hero.is-light-off .hero-media { opacity: 0; }
+/* A quiet third action beside the project links. */
+.hero-light-control { display: flex; }
+.hero-light-control[hidden] { display: none; }
+.hero-light-switch { min-height: 44px; padding: 0; border: 0; border-bottom: 1px solid #596270; border-radius: 0; background: transparent; color: #b7c2ce; cursor: pointer; font: inherit; font-size: 12px; line-height: 1.6; transition: color 180ms ease, border-color 180ms ease; }
+.hero-light-switch:hover { color: #65daf6; border-color: #65daf6; }
+.hero-light-switch:focus-visible { outline: 2px solid #65daf6; outline-offset: 5px; }
+.hero-media::after { content: ''; position: absolute; inset: 0; background: #006baf; opacity: 0; pointer-events: none; }
+.hero.light-restored .hero-media::after { animation: switch-light-pulse 900ms ease-out; }
+@keyframes switch-light-pulse { 0% { opacity: 0; } 25% { opacity: .24; } 100% { opacity: 0; } }
+@media (max-width: 700px) {
+  .hero-light-switch { font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero, .hero-media, .hero-light-switch { transition: none; }
+  .hero.light-restored .hero-media::after { animation: none; }
+}

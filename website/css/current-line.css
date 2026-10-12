@@ -1,0 +1,12 @@
+#inhoud { position: relative; }
+#inhoud > .hero { z-index: 2; }
+#inhoud + .site-footer { position: relative; z-index: 2; background: #fff; }
+.current-line { position: absolute; left: 0; z-index: 1; display: block; overflow: hidden; pointer-events: none; color: var(--blue, #006baf); }
+.current-line[hidden] { display: none; }
+.current-line path { stroke: currentColor; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.current-line-track { opacity: .18; }
+.current-line-fill { opacity: .72; }
+.current-line-point { fill: #fff; stroke: currentColor; stroke-width: 1; opacity: .4; transition: fill 180ms ease, opacity 180ms ease; }
+.current-line-point.is-connected { fill: currentColor; opacity: 1; }
+@media (max-width: 359px) { .current-line { display: none; } }
+@media (prefers-reduced-motion: reduce) { .current-line-point { transition: none; } }

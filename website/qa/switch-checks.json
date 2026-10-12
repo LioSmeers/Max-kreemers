@@ -1,0 +1,85 @@
+[
+  {
+    "stage": "desktop-on",
+    "heroHeight": 764,
+    "overflow": false,
+    "paused": false,
+    "pressed": "true",
+    "rate": 0.65,
+    "width": 1280
+  },
+  {
+    "stage": "desktop-off",
+    "heroHeight": 764,
+    "label": "Zet het licht weer aan.",
+    "paused": true,
+    "pressed": "false"
+  },
+  {
+    "stage": "enter-on",
+    "paused": false,
+    "pressed": "true",
+    "pulse": true
+  },
+  {
+    "stage": "space-off",
+    "focusOutline": "solid",
+    "paused": true,
+    "pressed": "false"
+  },
+  {
+    "stage": "off-settled",
+    "background": "rgb(3, 9, 19)",
+    "opacity": "0",
+    "pressed": "false"
+  },
+  {
+    "stage": "out-of-view",
+    "paused": true
+  },
+  {
+    "stage": "mobile-on",
+    "actionsBottom": 492.203125,
+    "button": {
+      "height": 58,
+      "width": 52,
+      "x": 24,
+      "y": 520.203125
+    },
+    "lineRight": 13,
+    "overflow": false,
+    "pressed": "true",
+    "width": 390
+  },
+  {
+    "stage": "reduced-on",
+    "paused": true,
+    "pressed": "true",
+    "pulse": false,
+    "source": null,
+    "transition": "0s"
+  },
+  {
+    "stage": "without-js-mobile",
+    "actions": [
+      "contact.html",
+      "realisaties.html"
+    ],
+    "controlHidden": true,
+    "menuDisplay": "none",
+    "navDisplay": [
+      "flex",
+      "flex"
+    ],
+    "overflow": false,
+    "title": "Bouwen of verbouwen.Ik regel de stroom."
+  },
+  {
+    "stage": "desktop-placement",
+    "buttonLeft": 1096,
+    "lineRight": 35,
+    "overflow": false,
+    "overlaps": [],
+    "pressed": "true"
+  }
+]

@@ -15,7 +15,7 @@
       const box = image.parentElement.getBoundingClientRect();
       if (box.bottom < 0 || box.top > innerHeight) return;
       const travel = Math.max(-1, Math.min(1, (innerHeight / 2 - box.top - box.height / 2) / innerHeight));
-      image.style.setProperty('--image-offset', `${travel * 22}px`);
+      (image.closest('.hotspot-stage') || image).style.setProperty('--image-offset', `${travel * 22}px`);
     });
     if (portrait) {
       const box = portrait.getBoundingClientRect();
