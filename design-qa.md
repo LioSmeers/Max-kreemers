@@ -1,7 +1,7 @@
 # Realisaties — gekozen fotoconcept 2
 
 Source visual truth: /Users/liosmeers/.codex/generated_images/01a13009-bf68-7f62-a512-31fa12fcdd23/exec-524aed6e-8eda-4187-86f3-78f4a547ade3.png
-Implementation screenshot: website/qa/spotlight-desktop.jpg; website/qa/spotlight-mobile.jpg.
+Implementation screenshot: qa/spotlight-desktop.jpg; qa/spotlight-mobile.jpg.
 Viewport: 1280 × 900 and 390 × 844. Source 1536 × 1024, desktop screenshot 1280 × 900, CSS-to-image density 1:1. Compared proportionally to the existing section width; no stretched source assets. State: Odette selected, initial slide, default controls.
 
 ## Visual comparison
@@ -33,17 +33,17 @@ final result: passed
 - Blauwe light sweep onthult de twee titelregels in 1,15 s met 0,2 s verschil. Het tekstmasker en de lichtstreep hebben dezelfde lineaire timing; geen verticale tekstbeweging.
 - Desktop 1280 × 900 en mobiel 390 × 844: geen horizontale overflow. Primaire projectlink opent contact.html. Geen consolefouten of waarschuwingen vastgesteld.
 - Reduced motion: revealklasse afwezig, titel volledig zichtbaar, elektrische cursor verborgen. Zonder JavaScript: beide titelregels zichtbaar, geen lichtknop of video.
-- Screenshot van de animatie bewust gepauzeerd op 575 ms om de voorrand te controleren; browser daarna herladen en testinstellingen hersteld. Beelden: website/qa/hero-light-sweep-desktop.png en website/qa/hero-static-mobile.png.
-- Alle lokale href/src-bestanden in de HTML-pagina’s bestaan. node --check website/js/hero.js en git diff --check geslaagd.
+- Screenshot van de animatie bewust gepauzeerd op 575 ms om de voorrand te controleren; browser daarna herladen en testinstellingen hersteld. Beelden: qa/hero-light-sweep-desktop.png en qa/hero-static-mobile.png.
+- Alle lokale href/src-bestanden in de HTML-pagina’s bestaan. node --check js/hero.js en git diff --check geslaagd.
 
 ## Elektrische cursor over de volledige homepage
 
 Het cursorcanvas staat nu rechtstreeks onder body en gebruikt vaste viewportcoördinaten. Header, hero, diensten, realisaties en footer gebruiken hetzelfde spoor; de IntersectionObserver op de hero is verwijderd. De buffer blijft begrensd op 40 punten en vier takjes; de canvasresolutie blijft beperkt tot DPR 2. Scrollen wist verouderde spoorpunten, zodat geen sprongen tussen secties ontstaan.
 
-Browsercontrole: in alle vijf delen actieve canvaspixels gemeten, ook na scrollen voorbij de hero. Het spoor verdwijnt bij stilstand. Reduced motion en touch verbergen het canvas. De primaire projectlink bleef klikbaar en opende contact.html. Geen horizontale overflow op 1280 × 900 of 390 × 844 en geen consolefouten/waarschuwingen. Metingen: website/qa/homepage-cursor-checks.json. Screenshot: website/qa/homepage-cursor-services.png; JavaScript kort gepauzeerd voor het vastleggen van het vluchtige spoor en daarna hersteld en de pagina herladen.
+Browsercontrole: in alle vijf delen actieve canvaspixels gemeten, ook na scrollen voorbij de hero. Het spoor verdwijnt bij stilstand. Reduced motion en touch verbergen het canvas. De primaire projectlink bleef klikbaar en opende contact.html. Geen horizontale overflow op 1280 × 900 of 390 × 844 en geen consolefouten/waarschuwingen. Metingen: qa/homepage-cursor-checks.json. Screenshot: qa/homepage-cursor-services.png; JavaScript kort gepauzeerd voor het vastleggen van het vluchtige spoor en daarna hersteld en de pagina herladen.
 
 ## Elektrische scrolllijn — 13 oktober
 
 De scrolllijn behoudt haar route door Diensten en langs Realisaties. Toegevoegd: lichtblauwe kern, smalle zachte halo en een 90 px gekartelde voorrand met twee korte takjes tijdens scrollen. De voorrand volgt gecachte padpunten; vonkjes doven na het bereiken van de scrollpositie in 180 ms uit. Stilstaand blijft alleen de kern, halo en het subtiele uiteinde zichtbaar. De renderloop stopt na het uitdoven en bij een verborgen tab.
 
-Browsercontrole 1280 × 900 / 390 × 844: geen overflow of consolemeldingen, decoratieve SVG heeft pointer-events:none. Terugscrollen activeert de voorrand opnieuw. Zonder screenshotpauze gecontroleerd: na stilvallen bolt-opacity 0, kern en halo hebben gelijke dashoffsets. Reduced motion: dashoffset 0, halo/vonkjes/uiteinde verborgen. Op 320 px: lijn verborgen en geen overflow. Screenshots tijdens beweging: website/qa/scroll-electricity-desktop.png en website/qa/scroll-electricity-mobile.png. JavaScript kort gepauzeerd voor vastlegging; browser daarna herladen en alle testinstellingen hersteld.
+Browsercontrole 1280 × 900 / 390 × 844: geen overflow of consolemeldingen, decoratieve SVG heeft pointer-events:none. Terugscrollen activeert de voorrand opnieuw. Zonder screenshotpauze gecontroleerd: na stilvallen bolt-opacity 0, kern en halo hebben gelijke dashoffsets. Reduced motion: dashoffset 0, halo/vonkjes/uiteinde verborgen. Op 320 px: lijn verborgen en geen overflow. Screenshots tijdens beweging: qa/scroll-electricity-desktop.png en qa/scroll-electricity-mobile.png. JavaScript kort gepauzeerd voor vastlegging; browser daarna herladen en alle testinstellingen hersteld.

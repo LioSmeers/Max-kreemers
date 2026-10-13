@@ -1,6 +1,6 @@
 # Kreemers Elektro
 
-Statische website in gewone HTML, CSS en JavaScript. Vier pagina’s delen de navigatie, typografie, footer en scrollanimaties:
+Statische website in gewone HTML, CSS en JavaScript. De websitebestanden staan rechtstreeks in de hoofdmap van deze repository; er is geen aparte `website`-map. Vier pagina’s delen de navigatie, typografie, footer en scrollanimaties:
 
 - `index.html`: hero, diensten en uitgelichte realisaties.
 - `realisaties.html`: projectfoto’s, filters en een fotovergroting.
@@ -12,7 +12,7 @@ Statische website in gewone HTML, CSS en JavaScript. Vier pagina’s delen de na
 Voer vanuit de hoofdmap van de repository uit:
 
 ```sh
-python3 -m http.server 8766 --bind 127.0.0.1 --directory website
+python3 -m http.server 8766 --bind 127.0.0.1
 ```
 
 Open http://127.0.0.1:8766/index.html. Er is geen buildstap of pakketinstallatie nodig.
@@ -85,7 +85,7 @@ De homepage toont één grote projectfoto met de toelichting links op donkerblau
 
 De informatiepunten bij railverlichting en bedrading blijven behouden. `js/showcase-hotspots.js` rekent de bestaande bronpixels om volgens zowel contain als cover. De spotlight-foto’s gebruiken geen parallax of vergroting, zodat punten nauwkeurig blijven staan. Bij wisselen sluiten de informatiekaartjes. Op mobiel verschijnen ze onder de foto. Fotolinks en informatieknoppen blijven aparte elementen.
 
-Getest op 390 en 1280 px: thumbnails, vorige/volgende, pijltjestoetsen, Enter, railkaartje, sluiten bij wisselen, vergroting en navigatie door vier foto’s, Escape, volledige foto’s zonder overflow. Zonder JavaScript vier bruikbare fotolinks; geen consolefouten of kapotte lokale bestanden. Screenshots: `qa/spotlight-desktop.jpg` en `qa/spotlight-mobile.jpg`. Designcontrole: `../design-qa.md`.
+Getest op 390 en 1280 px: thumbnails, vorige/volgende, pijltjestoetsen, Enter, railkaartje, sluiten bij wisselen, vergroting en navigatie door vier foto’s, Escape, volledige foto’s zonder overflow. Zonder JavaScript vier bruikbare fotolinks; geen consolefouten of kapotte lokale bestanden. Screenshots: `qa/spotlight-desktop.jpg` en `qa/spotlight-mobile.jpg`. Designcontrole: `design-qa.md`.
 
 ## Dienstenconcept 3
 
