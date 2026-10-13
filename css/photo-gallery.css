@@ -1,0 +1,12 @@
+.spotlight-stage { padding: 18px 24px; background: #0a1825; }
+.spotlight-photo { background: transparent; }
+.spotlight-navigation { top: var(--photo-midpoint, 251px); }
+.spotlight-thumbnails button { padding: 6px 6px 8px; background: #0a1825; }
+.lightbox-view { padding: 16px 52px; overflow: hidden; }
+.lightbox-view img { height: min(72svh, 840px); }
+@media (max-width: 700px) {
+ .spotlight-stage { padding: 12px 16px; }
+ .spotlight-thumbnails button { padding: 4px 4px 7px; }
+ .lightbox-view { padding: 12px 32px; }
+ .lightbox-view img { height: 68svh; }
+}

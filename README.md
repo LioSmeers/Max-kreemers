@@ -92,3 +92,9 @@ Getest op 390 en 1280 px: thumbnails, vorige/volgende, pijltjestoetsen, Enter, r
 De dienstensectie heeft een donkerblauwe achtergrond met drie verspringende tekstblokken, verbonden door een dun decoratief SVG-circuit. De bestaande teksten, typografie en contactlinks blijven behouden. Op mobiel staan de diensten onder elkaar langs een eenvoudige verticale lijn. Links hebben hover- en focusstijlen; reduced motion schakelt de hoverovergang uit. Geen extra libraries of beeldbestanden. Gecontroleerd op 390 en 1280 px: geen overflow, leesbare tekst, contactlink werkt en geen consolemeldingen. Screenshots: `qa/services-circuit-desktop.jpg` en `qa/services-circuit-mobile.jpg`.
 
 De vaste dienstenlijn wordt vervangen zodra het scrollpad is geïnitialiseerd. Ook de ongevulde basislijn is binnen het dienstencircuit verborgen: alleen de scrollvulling tekent dit deel. Zonder JavaScript of onder 360 px blijft de eenvoudige vaste terugvalweergave beschikbaar. Reduced motion toont het volledige pad statisch. Controle op 390/1280 px: scrolloffset verandert, vaste SVG-lijn verborgen, mobiele dubbele rand transparant, geen overflow of consolefouten.
+
+## Ruimte en overgangen bij projectfoto’s
+
+De grote homepagefoto’s hebben een donker kader met 18 × 24 px padding (12 × 16 px op mobiel). De voorbeeldfoto’s krijgen een kleiner kader. In de vergrote galerie houden de foto’s extra afstand tot de bladerknoppen. `css/photo-gallery.css` deelt deze stijlen tussen Home en Realisaties.
+
+Bij vorige/volgende of het kiezen van een voorbeeldfoto schuift de nieuwe foto 22 px in met een fade van 300 ms. De overgang begint zodra de foto geladen is. Een nieuwe klik annuleert de vorige overgang; de pijltjestoetsen blijven werken. Reduced motion wisselt direct zonder animatie. De informatiepunten worden op de afbeeldingsruimte binnen het gepadde kader berekend.

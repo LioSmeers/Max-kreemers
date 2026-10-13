@@ -35,13 +35,14 @@
       const { image, stage, layer, button } = project;
       if (project.figure.hidden || !image.complete || !image.naturalWidth) { layer.hidden = true; return; }
       const box = stage.getBoundingClientRect();
+      const imageWidth = image.clientWidth, imageHeight = image.clientHeight;
       const position = getComputedStyle(image).objectPosition.split(' ').map(parseFloat);
       const fit = getComputedStyle(image).objectFit === 'contain' ? Math.min : Math.max;
-      const scale = fit(box.width / image.naturalWidth, box.height / image.naturalHeight);
+      const scale = fit(imageWidth / image.naturalWidth, imageHeight / image.naturalHeight);
       const sourceX = Number(stage.dataset.sourceX) / Number(stage.dataset.sourceWidth) * image.naturalWidth;
       const sourceY = Number(stage.dataset.sourceY) / Number(stage.dataset.sourceHeight) * image.naturalHeight;
-      const x = sourceX * scale + (box.width - image.naturalWidth * scale) * position[0] / 100;
-      const y = sourceY * scale + (box.height - image.naturalHeight * scale) * position[1] / 100;
+      const x = image.offsetLeft + sourceX * scale + (imageWidth - image.naturalWidth * scale) * position[0] / 100;
+      const y = image.offsetTop + sourceY * scale + (imageHeight - image.naturalHeight * scale) * position[1] / 100;
       // The coordinates are original-image pixels, mapped through object-fit
       // and object-position. The entire point layer shares the image transform.
       button.style.left = `${x}px`; button.style.top = `${y}px`;
