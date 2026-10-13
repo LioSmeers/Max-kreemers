@@ -5,7 +5,10 @@
 .current-line[hidden] { display: none; }
 .current-line path { stroke: currentColor; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
 .current-line-track { opacity: .18; }
-.current-line-fill { opacity: .72; }
+.current-line .current-line-halo { stroke: #27b6f2; stroke-width: 5; opacity: .22; filter: blur(1.5px); }
+.current-line .current-line-fill { stroke: #8be6ff; stroke-width: 1; opacity: .85; }
+.current-line .current-line-bolt { stroke: #e5faff; stroke-width: 1.2; opacity: 0; filter: drop-shadow(0 0 3px #38caff); }
+.current-line-tip { fill: #effcff; opacity: 0; filter: drop-shadow(0 0 4px #38caff); }
 /* The scroll path replaces the static services circuit once initialized.
    Without JavaScript (or when the path cannot fit), keep the fallback. */
 .current-line-ready .services-circuit-path path { visibility: hidden; }
@@ -13,6 +16,10 @@
   .current-line-ready .services-grid { border-left-color: transparent; }
 }
 .current-line-point { fill: #fff; stroke: currentColor; stroke-width: 1; opacity: .4; transition: fill 180ms ease, opacity 180ms ease; }
-.current-line-point.is-connected { fill: currentColor; opacity: 1; }
+.current-line-point.is-connected { fill: #8be6ff; stroke: #38caff; opacity: 1; }
 @media (max-width: 359px) { .current-line { display: none; } }
-@media (prefers-reduced-motion: reduce) { .current-line-point { transition: none; } }
+@media (prefers-reduced-motion: reduce) {
+ .current-line-point { transition: none; }
+ .current-line .current-line-halo, .current-line .current-line-bolt, .current-line-tip { display: none; }
+ .current-line .current-line-fill { stroke: #65daf6; filter: none; }
+}
