@@ -29,9 +29,9 @@ De overige stylesheets zijn verdeeld over de hero, diensten, uitgelichte project
 
 ## Beelden en beweging
 
-De hero gebruikt de aangeleverde abstracte video als subtiele achtergrond. `assets/hero-video-light.mp4` is H.264, 960 × 540, 20 fps en 257.856 bytes, zonder audiospoor. Het bestand duurt 10 seconden en speelt met `playbackRate = 0.65`. De originele video is als bron bewaard. Het posterbeeld komt uit dezelfde video; de animatie wordt niet als uitgevoerd project gepresenteerd.
+De hero heeft een vaste donkerblauwe achtergrond. De lichtknop en videoachtergrond zijn op 13 oktober verwijderd. De oorspronkelijke video- en posterbestanden blijven als bronmateriaal bewaard, maar worden niet geladen door de homepage.
 
-De video pauzeert buiten beeld en bij een verborgen tab. Bij `prefers-reduced-motion` of databesparing wordt de videobron niet geladen. Er is geen afspeel- of pauzeknop. De optionele lichtschakelaar verbergt de achtergrond en pauzeert de video bij uitschakelen. De hero-tekst blijft ook zonder JavaScript zichtbaar.
+Bij openen onthult een blauwe lichtstreep de twee titelregels, met 0,2 seconde verschil. De lichtstreep en tekstmaskering delen dezelfde lineaire timing van 1,15 seconde. `js/hero.js` wacht op het lokale lettertype en verwijdert de animatieklasse na afloop. Zonder JavaScript, bij reduced motion of wanneer de tab verborgen is, blijft de tekst meteen zichtbaar.
 
 Het portret is aangeleverd door de gebruiker. De projectfoto’s zijn afkomstig van de oorspronkelijke Kreemers-website, met aangeleverde vervangingen voor LaNess Studio, railverlichting, keukenverlichting, inbouwverlichting, wachtbuizen en badkamerverlichting. Geoptimaliseerde WebP-versies worden op de pagina’s gebruikt; fotovergroting laadt een JPEG op aanvraag. De oude bronbeelden blijven bewaard.
 
@@ -61,7 +61,7 @@ Resultaten staan in `qa/layout-checks.json`. De screenshots met prefix `check-39
 
 ## Stroomlijn op de homepage
 
-Een decoratieve SVG verbindt de onderkant van de hero, Diensten, Realisaties en de bovenkant van de footer. `css/current-line.css` gebruikt het bestaande merkblauw; `js/current-line.js` vult het pad op basis van scrollpositie met een zachte vertraging (150 ms tijdconstante). De lijn ligt achter de hero, video en footer. Twee kleine aansluitpunten worden actief zodra de zichtbare vulling ze bereikt. De animation frames stoppen zodra de lijn haar doel bereikt; reduced motion toont het volledige pad statisch. Er zijn geen bewegende bolletjes of gloeifilters.
+Een decoratieve SVG verbindt de onderkant van de hero, Diensten, Realisaties en de bovenkant van de footer. `css/current-line.css` gebruikt het bestaande merkblauw; `js/current-line.js` vult het pad op basis van scrollpositie met een zachte vertraging (150 ms tijdconstante). De lijn ligt achter de hero en footer. Ze sluit links aan op het circuit van Diensten en loopt daarna via de rechterrand verder langs Realisaties. Op mobiel sluit ze aan op de verticale dienstenlijn en kruist ze uitsluitend de lege ondermarge naar rechts. Twee kleine aansluitpunten worden actief zodra de zichtbare vulling ze bereikt. De animation frames stoppen zodra de lijn haar doel bereikt; reduced motion toont het volledige pad statisch. Er zijn geen bewegende bolletjes of gloeifilters.
 
 De lijn ligt absoluut in de vrije linkermarge en verandert de layout niet. Desktop gebruikt rechte stukken met afgeronde bochten; mobiel heeft een recht zijpad. Onder 360 px of bij minder dan 22 px marge wordt de lijn verborgen. De SVG is `aria-hidden`, niet focusbaar en gebruikt `pointer-events: none`. Bij reduced motion zijn de volledige lijn en beide aansluitpunten statisch zichtbaar.
 
@@ -69,26 +69,26 @@ Scrollupdates gebruiken `requestAnimationFrame` en een passieve listener. Padmet
 
 Gecontroleerd op 390 en 1280 px: sectieposities en documenthoogte zijn exact gelijk aan de metingen vóór de toevoeging; geen overlap of horizontale overflow. Vulling en aansluitpunten reageren ook op terugscrollen. Reduced motion en verbergen bij 320 px zijn getest; geen consolefouten of waarschuwingen. Resultaten: `qa/current-line-checks.json`; beelden: `qa/current-line-desktop.jpg` en `qa/current-line-mobile.jpg`.
 
-## Lichtknop in de hero
+## Hero-interactie
 
-De optionele lichtknop is een subtiele tekstknop met `aria-pressed`, een zichtbaar actielabel en zichtbare toetsenbordfocus. De site start met het licht aan. Uitschakelen verbergt de achtergrond met een rustige fade en pauzeert de video; inschakelen herstelt de achtergrond met één korte blauwe puls. De keuze leeft uitsluitend in de geopende pagina en wordt niet opgeslagen.
+De primaire knoppen gebruiken het gekozen concept “Het circuit sluit” uit `css/button-circuit.css`: open hoeken sluiten bij hover of toetsenbordfocus. De linkdoelen blijven de bestaande contact- en realisatiepagina’s.
 
-Desktop plaatst de lichtknop naast “Bekijk realisaties”. Op mobiel lopen de acties door naar een volgende rij wanneer nodig. `css/hero-switch.css` beperkt alle kleurwissels tot de hero. `js/hero.js` behoudt playbackRate 0.65, databesparing, reduced motion en pauzeren buiten beeld. Bij reduced motion wisselt de achtergrond zonder overgang of lichtpuls en blijft de video ongeladen.
+Eén transparant canvas volgt de muisroute over de volledige homepage, inclusief header, diensten, realisaties en footer. Het canvas heeft een vaste positie en is alleen zo groot als het viewport; scrollen wist oude spoorpunten om sprongen te voorkomen. Boven teksten en links is de helderheid lager. `js/hero-electric-cursor.js` biedt de twee bestaande varianten via `index.html?cursor=1` en `index.html?cursor=2`. Ze staan naast elkaar op `cursor-concepten.html`; de keuze is nog aan de gebruiker. Reduced motion en apparaten zonder fijne hover-pointer schakelen het effect uit. De cursor en links blijven bruikbaar.
 
-Zonder JavaScript blijft de lichtknop verborgen. Een gedeelde noscript-stylesheet laat op mobiel de navigatielinks zien in plaats van een niet-werkende menuknop.
+Controle op 13 oktober: desktop 1280 × 900 en mobiel 390 × 844, zonder horizontale overflow. Lichtknop en videomarkup zijn afwezig. Het tekstmasker en de lichtstreep staan halverwege op dezelfde positie. Reduced motion toont de titel zonder reveal. Screenshots: `qa/hero-light-sweep-desktop.png` en `qa/hero-static-mobile.png`. Oudere screenshots met de lichtknop tonen historische versies.
 
-Gecontroleerd op 390 en 1280 px: beide lichtstanden, labels, muis, Enter en spatie, focusstijl, plaatsing, geen horizontale overflow en geen overlap met de stroomlijn. De desktophero behoudt zijn hoogte; de mobiele schakelaar staat na de bestaande acties. Reduced motion en de mobiele homepage zonder JavaScript zijn in de browser getest. Geen consolefouten of waarschuwingen. Conservatieve contrastcontrole (zelfs bij een volledig wit videoframe op 20% opacity): wit 10,93:1; beschrijving/label 6,05:1; primaire knop 5,64:1. Resultaten: `qa/switch-checks.json`; screenshots: `qa/switch-desktop-on.jpg`, `qa/switch-desktop-off.jpg` en `qa/switch-mobile-on.jpg`.
+## Realisaties: één project in de spotlight
 
-## Informatiepunten in de homepage-showcase
+De homepage toont één grote projectfoto met de toelichting links op donkerblauw. Native knoppen laten handmatig bladeren of een van vier voorbeeldfoto’s kiezen: Odette Lunettes, railverlichting, Laness Studio en de behouden bedrading. Geen autoplay. `js/spotlight.js` beheert de actieve foto, `aria-pressed`, een live aankondiging en pijltjestoetsen. Op mobiel staan tekst, foto en voorbeeldfoto’s onder elkaar. Klikken op de grote foto opent de bestaande native dialog-galerij met alle vier foto’s, pijltjes en Escape/sluitknop. De link naar `realisaties.html` blijft zichtbaar.
 
-Railverlichting en bedrading hebben elk één optioneel informatiepunt. De vaste bronposities zijn (530, 458) in de railfoto van 1086 × 1448 px en (680, 550) in de verdeelbordfoto van 900 × 1200 px. Deze punten zijn op de zichtbare middelste plafondspot en een blauwe draad geplaatst. De tekst beschrijft uitsluitend onderdelen die op de bestaande foto’s staan.
+`css/spotlight.css` behoudt de huidige typografie en kleuren. Foto’s worden met `object-fit: contain` volledig getoond en gebruiken de bestaande originele bestanden. Zonder JavaScript staan alle vier projecten onder elkaar en openen de fotolinks rechtstreeks het JPG-bestand; niet-werkende bladerknoppen blijven verborgen.
 
-`js/showcase-hotspots.js` rekent de bronpixels om volgens `object-fit: cover` en `object-position`. Een aparte puntenlaag deelt de beeldtransformatie voor parallax en hover; `js/motion.js` geeft die twee foto’s daarom de scrolloffset via hun gedeelde frame. De overige beelden behouden hun bestaande gedrag. Fotolinks en informatieknoppen zijn aparte elementen: er staan geen buttons binnen links.
+De informatiepunten bij railverlichting en bedrading blijven behouden. `js/showcase-hotspots.js` rekent de bestaande bronpixels om volgens zowel contain als cover. De spotlight-foto’s gebruiken geen parallax of vergroting, zodat punten nauwkeurig blijven staan. Bij wisselen sluiten de informatiekaartjes. Op mobiel verschijnen ze onder de foto. Fotolinks en informatieknoppen blijven aparte elementen.
 
-Elk punt is een native button met minstens 44 × 44 px klikvlak, toegankelijke naam, `aria-expanded`, `aria-controls` en focusstijl. Maximaal één kaartje is open. Sluiten werkt via hetzelfde punt, de sluitknop, klikken erbuiten en Escape. De sluitknop en Escape brengen de focus terug naar het punt. Desktop plaatst een kaartje op de foto als het veilig past; mobiel en krappe frames krijgen het onder de foto. Zonder JavaScript zijn hint, punten en kaartjes verborgen en blijven de fotolinks bruikbaar.
-
-Getest op 390 en 1280 px: bronuitlijning binnen 0,02 px bij de gemeten parallax/hoverstanden, minimale klikvlakken, fotolinks niet geactiveerd door punten, één kaartje tegelijk, alle sluitmethoden, Enter/spatie, behouden fotoverhoudingen, geen overflow, reduced motion en werking zonder JavaScript. Geen consolefouten of waarschuwingen. Resultaten: `qa/hotspot-checks.json`; screenshots: `qa/hotspots-desktop.jpg` en `qa/hotspots-mobile.jpg`.
+Getest op 390 en 1280 px: thumbnails, vorige/volgende, pijltjestoetsen, Enter, railkaartje, sluiten bij wisselen, vergroting en navigatie door vier foto’s, Escape, volledige foto’s zonder overflow. Zonder JavaScript vier bruikbare fotolinks; geen consolefouten of kapotte lokale bestanden. Screenshots: `qa/spotlight-desktop.jpg` en `qa/spotlight-mobile.jpg`. Designcontrole: `../design-qa.md`.
 
 ## Dienstenconcept 3
 
 De dienstensectie heeft een donkerblauwe achtergrond met drie verspringende tekstblokken, verbonden door een dun decoratief SVG-circuit. De bestaande teksten, typografie en contactlinks blijven behouden. Op mobiel staan de diensten onder elkaar langs een eenvoudige verticale lijn. Links hebben hover- en focusstijlen; reduced motion schakelt de hoverovergang uit. Geen extra libraries of beeldbestanden. Gecontroleerd op 390 en 1280 px: geen overflow, leesbare tekst, contactlink werkt en geen consolemeldingen. Screenshots: `qa/services-circuit-desktop.jpg` en `qa/services-circuit-mobile.jpg`.
+
+De vaste dienstenlijn wordt vervangen zodra het scrollpad is geïnitialiseerd. Ook de ongevulde basislijn is binnen het dienstencircuit verborgen: alleen de scrollvulling tekent dit deel. Zonder JavaScript of onder 360 px blijft de eenvoudige vaste terugvalweergave beschikbaar. Reduced motion toont het volledige pad statisch. Controle op 390/1280 px: scrolloffset verandert, vaste SVG-lijn verborgen, mobiele dubbele rand transparant, geen overflow of consolefouten.

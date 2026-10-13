@@ -6,16 +6,18 @@
   <title>Kreemers Elektro</title>
   <meta name="description" content="Kreemers Elektro — elektriciteit, renovatie en domotica in Hasselt en Limburg.">
   <link rel="stylesheet" href="css/header.css?v=3">
-  <link rel="stylesheet" href="css/hero.css?v=2">
-  <link rel="stylesheet" href="css/hero-switch.css?v=2">
+  <link rel="stylesheet" href="css/hero.css?v=3">
   <link rel="stylesheet" href="css/services.css?v=2">
-  <link rel="stylesheet" href="css/showcase.css">
-  <link rel="stylesheet" href="css/current-line.css?v=3">
-  <script src="js/current-line.js?v=2" defer></script>
+  <link rel="stylesheet" href="css/showcase.css?v=2">
+  <link rel="stylesheet" href="css/current-line.css?v=4">
+  <script src="js/current-line.js?v=4" defer></script>
   <script src="js/header.js" defer></script>
-  <script src="js/hero.js?v=4" defer></script>
-<link rel="stylesheet" href="css/motion.css"><script src="js/motion.js?v=2" defer></script><link rel="stylesheet" href="css/footer.css"><noscript><link rel="stylesheet" href="css/no-script.css"></noscript><link rel="stylesheet" href="css/showcase-hotspots.css"><script src="js/showcase-hotspots.js" defer></script></head>
+  <script src="js/hero.js?v=5" defer></script>
+  <link rel="stylesheet" href="css/hero-electric-cursor.css?v=2">
+  <script src="js/hero-electric-cursor.js?v=4" defer></script>
+<link rel="stylesheet" href="css/motion.css"><script src="js/motion.js?v=2" defer></script><link rel="stylesheet" href="css/footer.css"><noscript><link rel="stylesheet" href="css/no-script.css"></noscript><link rel="stylesheet" href="css/showcase-hotspots.css"><script src="js/showcase-hotspots.js?v=2" defer></script><link rel="stylesheet" href="css/spotlight.css?v=2"><script src="js/spotlight.js" defer></script><script src="js/pages.js?v=3" defer></script><link rel="stylesheet" href="css/button-circuit.css"></head>
 <body>
+  <canvas class="homepage-electric-cursor" aria-hidden="true" hidden></canvas>
   <header class="site-header">
     <nav class="header-inner" aria-label="Hoofdnavigatie">
       <ul class="nav-links nav-left" id="navigation-left">
@@ -37,11 +39,6 @@
   </header>
   <main id="inhoud">
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-media" aria-hidden="true">
-        <video class="hero-video" muted loop playsinline preload="none" poster="assets/hero-poster.jpg" tabindex="-1">
-          <source data-src="assets/hero-video-light.mp4" type="video/mp4">
-        </video>
-      </div>
       <div class="hero-content">
         <p class="hero-eyebrow"><span class="signal-dot" aria-hidden="true"></span> Kreemers Elektro <span class="eyebrow-location">Hasselt · Limburg</span></p>
         <h1 id="hero-title"><span class="title-line"><span>Bouwen of verbouwen.</span></span><span class="title-line accent"><span>Ik regel de stroom.</span></span></h1>
@@ -49,11 +46,6 @@
         <div class="hero-actions">
           <a class="project-button" href="contact.html">Bespreek je project</a>
           <a class="projects-link" href="realisaties.html">Bekijk realisaties</a>
-          <div class="hero-light-control" hidden>
-            <button class="hero-light-switch" type="button" aria-pressed="true">
-              <span class="hero-switch-label">Zet het licht eens uit.</span>
-            </button>
-          </div>
         </div>
       </div>
       <div class="hero-bottom">
@@ -99,58 +91,60 @@
         </div>
       </div>
     </section>
-    <section class="showcase" id="uitgelichte-realisaties" aria-labelledby="showcase-title">
+    <section class="showcase spotlight" id="uitgelichte-realisaties" aria-labelledby="showcase-title">
       <div class="showcase-inner">
-        <header class="showcase-heading">
-          <p class="showcase-eyebrow">Realisaties</p>
-          <h2 id="showcase-title">Neon, verlichting en de bedrading erachter.</h2>
+        <h2 id="showcase-title" class="sr-only">Realisaties van Kreemers Elektro</h2>
+        <p class="showcase-eyebrow">Realisaties</p>
+        <div class="showcase-slider" aria-label="Projectfoto’s">
+          <div class="spotlight-slides">
+            <figure class="spotlight-slide" data-project-title="Odette Lunettes">
+              <figcaption class="spotlight-copy"><h3>Odette <span>Lunettes.</span></h3><p>Voor Odette Lunettes bracht Max het neonbord onder stroom.</p><span class="spotlight-count" aria-hidden="true">01 / 04</span></figcaption>
+              <div class="spotlight-stage">
+                <a class="spotlight-photo" href="assets/realisaties/odette-lunettes-neon.jpg" data-lightbox data-caption="Odette Lunettes" aria-label="Vergroot foto: Odette Lunettes"><img src="assets/realisaties/odette-lunettes-neon.webp" alt="Het verlichte neonbord van Odette Lunettes" width="1086" height="724" loading="lazy" decoding="async"></a>
+              </div>
+            </figure>
+            <figure class="spotlight-slide hotspot-project" data-project-title="Railverlichting">
+              <figcaption class="spotlight-copy"><h3>Rail<span>verlichting.</span></h3><p>De spots zitten op de zwarte plafondrail.</p><span class="spotlight-count" aria-hidden="true">02 / 04</span></figcaption>
+              <div class="hotspot-stage spotlight-stage" data-source-x="530" data-source-y="458" data-source-width="1086" data-source-height="1448">
+                <a class="spotlight-photo" href="assets/realisaties/railverlichting-woonkamer-nieuw.jpg" data-lightbox data-caption="Railverlichting" aria-label="Vergroot foto: Railverlichting"><img src="assets/realisaties/railverlichting-woonkamer-nieuw.webp" alt="Spots op een zwarte plafondrail" width="900" height="1200" loading="lazy" decoding="async"></a>
+                <div class="hotspot-layer" hidden><button class="hotspot-button" type="button" aria-expanded="false" aria-controls="hotspot-rail" aria-label="Toelichting bij railverlichting" hidden><span aria-hidden="true"></span></button></div>
+              </div>
+              <div class="hotspot-card" id="hotspot-rail" role="region" aria-labelledby="hotspot-title-rail" hidden><div class="hotspot-card-heading"><h4 id="hotspot-title-rail">Railverlichting</h4><button class="hotspot-close" type="button" aria-label="Sluit toelichting bij railverlichting">Sluiten</button></div><p>De spots zitten op de zwarte plafondrail.</p></div>
+            </figure>
+            <figure class="spotlight-slide" data-project-title="Laness Studio">
+              <figcaption class="spotlight-copy"><h3>Laness <span>Studio.</span></h3><p>Verlichting aan een handelspand.</p><span class="spotlight-count" aria-hidden="true">03 / 04</span></figcaption>
+              <div class="spotlight-stage">
+                <a class="spotlight-photo" href="assets/realisaties/gevelverlichting-laness-studio-nieuw.jpg" data-lightbox data-caption="Laness Studio" aria-label="Vergroot foto: Laness Studio"><img src="assets/realisaties/gevelverlichting-laness-studio-nieuw.webp" alt="Verlichte gevel van Laness Studio" width="900" height="1200" loading="lazy" decoding="async"></a>
+              </div>
+            </figure>
+            <figure class="spotlight-slide hotspot-project" data-project-title="Bedrading in detail">
+              <figcaption class="spotlight-copy"><h3>Tot in de <span>bedrading.</span></h3><p>Rode en blauwe draden lopen tussen de rijen in het verdeelbord.</p><span class="spotlight-count" aria-hidden="true">04 / 04</span></figcaption>
+              <div class="hotspot-stage spotlight-stage" data-source-x="680" data-source-y="550" data-source-width="900" data-source-height="1200">
+                <a class="spotlight-photo" href="assets/realisaties/zekeringkast-detail-bedrading.jpg" data-lightbox data-caption="Bedrading in detail" aria-label="Vergroot foto: Bedrading in detail"><img src="assets/realisaties/zekeringkast-detail-bedrading.webp" alt="Detail van de bedrading in een verdeelbord" width="900" height="1200" loading="lazy" decoding="async"></a>
+                <div class="hotspot-layer" hidden><button class="hotspot-button" type="button" aria-expanded="false" aria-controls="hotspot-wires" aria-label="Toelichting bij bedrading in detail" hidden><span aria-hidden="true"></span></button></div>
+              </div>
+              <div class="hotspot-card" id="hotspot-wires" role="region" aria-labelledby="hotspot-title-wires" hidden><div class="hotspot-card-heading"><h4 id="hotspot-title-wires">Bedrading in detail</h4><button class="hotspot-close" type="button" aria-label="Sluit toelichting bij bedrading in detail">Sluiten</button></div><p>Rode en blauwe draden lopen tussen de rijen in het verdeelbord.</p></div>
+            </figure>
+          </div>
+          <div class="spotlight-navigation" hidden>
+            <button type="button" class="spotlight-prev" aria-label="Vorige realisatie"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="14 5 7 12 14 19" /></svg></button>
+            <button type="button" class="spotlight-next" aria-label="Volgende realisatie"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="10 5 17 12 10 19" /></svg></button>
+          </div>
+          <p class="sr-only spotlight-status" aria-live="polite" aria-atomic="true"></p>
+          <div class="spotlight-bottom">
+            <div class="spotlight-thumbnails" role="group" aria-label="Kies een realisatie" hidden>
+              <button type="button" aria-label="Toon Odette Lunettes" aria-pressed="false"><img src="assets/realisaties/odette-lunettes-neon.webp" alt="" width="180" height="120" loading="lazy"></button>
+              <button type="button" aria-label="Toon Railverlichting" aria-pressed="false"><img src="assets/realisaties/railverlichting-woonkamer-nieuw.webp" alt="" width="180" height="120" loading="lazy"></button>
+              <button type="button" aria-label="Toon Laness Studio" aria-pressed="false"><img src="assets/realisaties/gevelverlichting-laness-studio-nieuw.webp" alt="" width="180" height="120" loading="lazy"></button>
+              <button type="button" aria-label="Toon Bedrading in detail" aria-pressed="false"><img src="assets/realisaties/zekeringkast-detail-bedrading.webp" alt="" width="180" height="120" loading="lazy"></button>
+            </div>
+            <a class="showcase-all" href="realisaties.html">Bekijk alle realisaties</a>
+          </div>
           <p class="showcase-hint" hidden>Klik op de punten en ontdek de details.</p>
-        </header>
-        <div class="showcase-grid">
-          <figure class="showcase-project showcase-featured">
-            <a class="showcase-photo" href="realisaties.html" aria-label="Bekijk Odette Lunettes op de pagina Realisaties">
-              <img src="assets/realisaties/odette-lunettes-neon.webp" alt="Het verlichte neonbord van Odette Lunettes, aangesloten door Kreemers Elektro" width="1086" height="724" loading="lazy" decoding="async">
-            </a>
-            <figcaption>
-              <span class="showcase-number" aria-hidden="true">01 / Uitgelicht</span>
-              <h3>Odette Lunettes</h3>
-              <p>Voor Odette Lunettes bracht Max het neonbord onder stroom.</p>
-            </figcaption>
-          </figure>
-          <figure class="showcase-project showcase-secondary hotspot-project">
-            <div class="hotspot-stage" data-source-x="530" data-source-y="458" data-source-width="1086" data-source-height="1448">
-            <a class="showcase-photo" href="realisaties.html#selection-title" aria-label="Bekijk de railverlichting op de pagina Realisaties">
-              <img src="assets/realisaties/railverlichting-woonkamer-nieuw.webp" alt="Railverlichting aan het plafond met licht op de wand" width="900" height="1200" loading="lazy" decoding="async">
-            </a>
-              <div class="hotspot-layer" hidden>
-                <button class="hotspot-button" type="button" aria-expanded="false" aria-controls="hotspot-rail" aria-label="Toelichting bij railverlichting" hidden><span aria-hidden="true"></span></button>
-              </div>
-            </div>
-            <div class="hotspot-card" id="hotspot-rail" role="region" aria-labelledby="hotspot-title-rail" hidden>
-              <div class="hotspot-card-heading"><h4 id="hotspot-title-rail">Railverlichting</h4><button class="hotspot-close" type="button" aria-label="Sluit toelichting bij railverlichting">Sluiten</button></div>
-              <p>De spots zitten op de zwarte plafondrail.</p>
-            </div>
-            <figcaption><span class="showcase-number" aria-hidden="true">02</span><h3>Railverlichting</h3></figcaption>
-          </figure>
-          <figure class="showcase-project showcase-detail hotspot-project">
-            <div class="hotspot-stage" data-source-x="680" data-source-y="550" data-source-width="900" data-source-height="1200">
-            <a class="showcase-photo" href="realisaties.html#selection-title" aria-label="Bekijk de bedrading op de pagina Realisaties">
-              <img src="assets/realisaties/zekeringkast-detail-bedrading.webp" alt="Detail van de bedrading in een verdeelbord van Kreemers Elektro" width="900" height="1200" loading="lazy" decoding="async">
-            </a>
-              <div class="hotspot-layer" hidden>
-                <button class="hotspot-button" type="button" aria-expanded="false" aria-controls="hotspot-wires" aria-label="Toelichting bij bedrading" hidden><span aria-hidden="true"></span></button>
-              </div>
-            </div>
-            <div class="hotspot-card" id="hotspot-wires" role="region" aria-labelledby="hotspot-title-wires" hidden>
-              <div class="hotspot-card-heading"><h4 id="hotspot-title-wires">Bedrading</h4><button class="hotspot-close" type="button" aria-label="Sluit toelichting bij bedrading">Sluiten</button></div>
-              <p>Rode en blauwe draden lopen tussen de rijen in het verdeelbord.</p>
-            </div>
-            <figcaption><span class="showcase-number" aria-hidden="true">03</span><h3>Bedrading in detail</h3></figcaption>
-          </figure>
         </div>
-        <a class="showcase-all" href="realisaties.html">Bekijk alle realisaties</a>
       </div>
     </section>
+    <dialog class="lightbox" aria-label="Projectfoto"><div class="lightbox-bar"><p class="lightbox-caption"></p><button class="lightbox-close" type="button" aria-label="Sluit projectfoto">Sluiten ×</button></div><div class="lightbox-view"><button class="lightbox-prev" type="button" aria-label="Vorige projectfoto"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="14 5 7 12 14 19" /></svg></button><img alt=""><button class="lightbox-next" type="button" aria-label="Volgende projectfoto"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="10 5 17 12 10 19" /></svg></button></div><p class="lightbox-counter" aria-live="polite"></p></dialog>
     <svg class="current-line" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" hidden>
       <path class="current-line-track" fill="none" />
       <path class="current-line-fill" fill="none" />

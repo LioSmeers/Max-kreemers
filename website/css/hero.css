@@ -1,6 +1,4 @@
 .hero { position: relative; isolation: isolate; overflow: hidden; background: #050d19; color: #fff; min-height: max(660px, calc(100svh - 136px)); display: flex; flex-direction: column; justify-content: center; }
-.hero-media { position: absolute; z-index: -2; inset: 0; background: #050d19; opacity: .2; pointer-events: none; }
-.hero-video { width: 100%; height: 100%; display: block; object-fit: cover; object-position: 54% center; }
 .hero-content { width: 100%; padding: 80px 48px 104px max(48px, calc((100vw - 1184px) / 2)); }
 .hero-eyebrow { display: flex; align-items: center; gap: 12px; margin: 0 0 44px; font-size: 12px; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; }
 .signal-dot { width: 6px; height: 6px; border-radius: 50%; background: #55d9fb; box-shadow: 0 0 12px #55d9fb; }
@@ -20,12 +18,13 @@
 .hero a:focus-visible { outline: 2px solid #65daf6; outline-offset: 5px; }
 .hero-bottom { position: absolute; bottom: 0; left: 0; width: 100%; padding: 25px max(48px, calc((100vw - 1184px) / 2)); display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .hero-bottom p { color: #9eaaba; font-size: 11px; letter-spacing: .035em; margin: 0; }
-.hero.entering .title-line > span { animation: connect-text 1s cubic-bezier(.16,1,.3,1) both; }
-.hero.entering .title-line.accent > span { animation-delay: .25s; }
-.hero.entering .title-line::after { content: ''; position: absolute; inset: 0 auto 0 0; width: 2px; background: #8becff; box-shadow: 0 0 22px 6px #37c9eb; animation: current-pulse 1s ease-out both; pointer-events: none; }
-.hero.entering .title-line.accent::after { animation-delay: .25s; }
-@keyframes connect-text { from { clip-path: inset(0 100% 0 0); transform: translateY(12px); } to { clip-path: inset(0); transform: translateY(0); } }
-@keyframes current-pulse { 0% { left: 0; opacity: 0; } 12% { opacity: 1; } 85% { opacity: .8; } 100% { left: 100%; opacity: 0; } }
+/* The light and reveal share their timing, so the light follows the leading edge. */
+.hero.entering .title-line { --sweep-delay: 0s; }
+.hero.entering .title-line.accent { --sweep-delay: .2s; }
+.hero.entering .title-line > span { animation: light-sweep-text 1.15s linear var(--sweep-delay) both; }
+.hero.entering .title-line::after { content: ''; position: absolute; top: .07em; bottom: .13em; left: 0; width: 2px; background: #8becff; box-shadow: 0 0 12px 3px #37c9eb; animation: light-sweep-edge 1.15s linear var(--sweep-delay) both; pointer-events: none; }
+@keyframes light-sweep-text { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0); } }
+@keyframes light-sweep-edge { 0% { left: 0; opacity: 0; } 8% { opacity: 1; } 88% { opacity: 1; } 100% { left: 100%; opacity: 0; } }
 @media (max-width: 1000px) { .hero-content { padding-inline: 32px; } .hero-bottom { padding-inline: 32px; } .hero-eyebrow { gap: 9px; } .eyebrow-location { margin-left: 0; } }
 @media (max-width: 700px) {
   .hero { min-height: 0; justify-content: flex-start; }
@@ -37,8 +36,6 @@
   .hero-actions { margin-top: 24px; gap: 15px 24px; }
   .project-button { min-height: 52px; padding: 13px 18px; }
   .hero-actions a { font-size: 12px; }
-  .hero-media { opacity: .16; }
-  .hero-video { object-position: center; }
   .hero-bottom { position: relative; order: 3; padding: 12px 24px; gap: 12px; }
   .hero-bottom p { max-width: 300px; font-size: 10px; line-height: 1.5; }
 }

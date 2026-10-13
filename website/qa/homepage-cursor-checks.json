@@ -1,0 +1,37 @@
+[
+  {
+    "section": ".site-header",
+    "height": 900,
+    "pixels": 5516,
+    "scrollY": 0,
+    "width": 1280
+  },
+  {
+    "section": ".hero",
+    "height": 900,
+    "pixels": 4847,
+    "scrollY": 137,
+    "width": 1280
+  },
+  {
+    "section": ".services",
+    "height": 900,
+    "pixels": 4972,
+    "scrollY": 901,
+    "width": 1280
+  },
+  {
+    "section": ".showcase",
+    "height": 900,
+    "pixels": 4034,
+    "scrollY": 1897.5,
+    "width": 1280
+  },
+  {
+    "section": ".site-footer",
+    "height": 900,
+    "pixels": 4693,
+    "scrollY": 1990,
+    "width": 1280
+  }
+]

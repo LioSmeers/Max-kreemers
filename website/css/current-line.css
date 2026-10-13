@@ -6,6 +6,12 @@
 .current-line path { stroke: currentColor; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
 .current-line-track { opacity: .18; }
 .current-line-fill { opacity: .72; }
+/* The scroll path replaces the static services circuit once initialized.
+   Without JavaScript (or when the path cannot fit), keep the fallback. */
+.current-line-ready .services-circuit-path path { visibility: hidden; }
+@media (max-width: 700px) {
+  .current-line-ready .services-grid { border-left-color: transparent; }
+}
 .current-line-point { fill: #fff; stroke: currentColor; stroke-width: 1; opacity: .4; transition: fill 180ms ease, opacity 180ms ease; }
 .current-line-point.is-connected { fill: currentColor; opacity: 1; }
 @media (max-width: 359px) { .current-line { display: none; } }

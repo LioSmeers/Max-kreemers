@@ -1,47 +1,20 @@
 (() => {
   const hero = document.querySelector('.hero');
-  const video = hero.querySelector('video');
-  const source = video.querySelector('source');
-  const control = hero.querySelector('.hero-light-control');
-  const lightSwitch = control?.querySelector('.hero-light-switch');
-  const label = control?.querySelector('.hero-switch-label');
+  if (!hero) return;
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-  const saveData = navigator.connection?.saveData || matchMedia('(prefers-reduced-data: reduce)').matches;
-  let loaded = false;
-  let inView = true;
-  let lightsOn = true;
-  const play = () => {
-    if (!loaded) { source.src = source.dataset.src; video.load(); loaded = true; }
-    video.playbackRate = 0.65;
-    video.play().catch(() => {});
-  };
-  const syncPlayback = () => {
-    if (!lightsOn || !inView || document.hidden || reducedMotion.matches || saveData) video.pause();
-    else play();
-  };
-  const applyPreference = () => {
-    hero.classList.toggle('entering', !reducedMotion.matches);
-    syncPlayback();
-  };
-  reducedMotion.addEventListener('change', applyPreference);
-  document.addEventListener('visibilitychange', syncPlayback);
-  if ('IntersectionObserver' in window) new IntersectionObserver(entries => {
-    inView = entries[0].isIntersecting; syncPlayback();
-  }).observe(hero);
-  if (lightSwitch) {
-    lightSwitch.addEventListener('click', () => {
-      lightsOn = !lightsOn;
-      hero.classList.toggle('is-light-off', !lightsOn);
-      lightSwitch.setAttribute('aria-pressed', String(lightsOn));
-      label.textContent = lightsOn ? 'Zet het licht eens uit.' : 'Zet het licht weer aan.';
-      hero.classList.remove('light-restored');
-      if (lightsOn && !reducedMotion.matches) hero.classList.add('light-restored');
-      syncPlayback();
+  const finish = () => hero.classList.remove('entering');
+
+  // Keep text readable without JavaScript and when motion is disabled.
+  // Wait for the final font width before sweeping across each title line.
+  document.fonts.ready.then(() => {
+    if (reducedMotion.matches || document.hidden) return;
+    requestAnimationFrame(() => {
+      if (!reducedMotion.matches && !document.hidden) hero.classList.add('entering');
     });
-    hero.addEventListener('animationend', event => {
-      if (event.animationName === 'switch-light-pulse') hero.classList.remove('light-restored');
-    });
-    control.hidden = false;
-  }
-  applyPreference();
+  });
+  hero.addEventListener('animationend', event => {
+    if (event.animationName === 'light-sweep-text' && event.target.closest('.title-line.accent')) finish();
+  });
+  reducedMotion.addEventListener('change', () => { if (reducedMotion.matches) finish(); });
+  document.addEventListener('visibilitychange', () => { if (document.hidden) finish(); });
 })();

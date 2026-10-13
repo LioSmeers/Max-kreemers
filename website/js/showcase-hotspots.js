@@ -33,10 +33,11 @@
     queued = false;
     projects.forEach(project => {
       const { image, stage, layer, button } = project;
-      if (!image.complete || !image.naturalWidth) return;
+      if (project.figure.hidden || !image.complete || !image.naturalWidth) { layer.hidden = true; return; }
       const box = stage.getBoundingClientRect();
       const position = getComputedStyle(image).objectPosition.split(' ').map(parseFloat);
-      const scale = Math.max(box.width / image.naturalWidth, box.height / image.naturalHeight);
+      const fit = getComputedStyle(image).objectFit === 'contain' ? Math.min : Math.max;
+      const scale = fit(box.width / image.naturalWidth, box.height / image.naturalHeight);
       const sourceX = Number(stage.dataset.sourceX) / Number(stage.dataset.sourceWidth) * image.naturalWidth;
       const sourceY = Number(stage.dataset.sourceY) / Number(stage.dataset.sourceHeight) * image.naturalHeight;
       const x = sourceX * scale + (box.width - image.naturalWidth * scale) * position[0] / 100;
@@ -48,7 +49,7 @@
       layer.hidden = button.hidden;
       if (button.hidden && active === project) close();
     });
-    hint.hidden = projects.every(project => project.button.hidden);
+    hint.hidden = projects.every(project => project.figure.hidden || project.button.hidden);
     if (active) placeCard(active);
   };
   const schedule = () => { if (!queued) { queued = true; requestAnimationFrame(measure); } };
@@ -68,6 +69,7 @@
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape' && active) { event.preventDefault(); close(true); }
   });
+  document.addEventListener('showcasechange', () => { close(); schedule(); });
   addEventListener('resize', schedule);
   if ('ResizeObserver' in window) {
     const observer = new ResizeObserver(schedule);

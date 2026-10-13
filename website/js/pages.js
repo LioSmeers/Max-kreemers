@@ -42,7 +42,7 @@
   const next = direction => { index = (index + direction + collection.length) % collection.length; show(); };
   document.querySelectorAll('[data-lightbox]').forEach(link => link.addEventListener('click', event => {
     event.preventDefault();
-    collection = [...document.querySelectorAll('[data-lightbox]')].filter(item => !item.closest('[hidden]'));
+    collection = [...document.querySelectorAll('[data-lightbox]')].filter(item => !item.closest('[hidden]') || item.closest('.spotlight-slide'));
     index = collection.indexOf(link);
     show();
     dialog.showModal();

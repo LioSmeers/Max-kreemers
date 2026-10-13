@@ -22,7 +22,8 @@
   let displayedDistance = 0;
   let lastFrame = 0;
 
-  // The path never leaves the empty left gutter. Geometry is measured only
+  // The path joins the services circuit, then follows the empty right gutter.
+  // Geometry is measured only
   // when page dimensions change, rather than on every scroll event.
   const measure = () => {
     const mainBox = main.getBoundingClientRect();
@@ -32,17 +33,30 @@
     const footerBox = footer.getBoundingClientRect();
     const left = Math.min(serviceBox.left, showcaseBox.left, footer.firstElementChild.getBoundingClientRect().left);
     const mobile = mainBox.width <= 700;
-    if (mainBox.width < 360 || left < 22) { svg.setAttribute('hidden', ''); return; }
+    if (mainBox.width < 360 || left < 22) {
+      svg.setAttribute('hidden', '');
+      main.classList.remove('current-line-ready');
+      return;
+    }
     start = heroBox.bottom + scrollY - 16;
     height = footerBox.top + scrollY + 16 - start;
     firstScroll = start - innerHeight * .7;
     lastScroll = Math.max(firstScroll + 1, footerBox.bottom + scrollY - innerHeight);
-    const serviceY = serviceBox.top + scrollY + serviceBox.height / 2 - start;
+    const circuitBox = main.querySelector('.services-circuit').getBoundingClientRect();
+    const sectionBox = main.querySelector('.services').getBoundingClientRect();
+    const serviceY = circuitBox.top + scrollY + (mobile ? 8 : 4) - start;
     const showcaseY = showcaseBox.top + scrollY + showcaseBox.height / 2 - start;
     const a = mobile ? 10 : Math.max(6, left - 32);
-    const b = mobile ? a : Math.max(a + 12, left - 16);
-    const bend = y => `L ${a} ${y - 28} Q ${a} ${y - 20} ${a + 6} ${y - 20} L ${b - 6} ${y - 20} Q ${b} ${y - 20} ${b} ${y - 14} L ${b} ${y + 14} Q ${b} ${y + 20} ${b - 6} ${y + 20} L ${a + 6} ${y + 20} Q ${a} ${y + 20} ${a} ${y + 28}`;
-    const path = mobile ? `M ${a} 0 L ${a} ${height}` : `M ${a} 0 ${bend(serviceY)} ${bend(showcaseY)} L ${a} ${height}`;
+    const right = mainBox.width - a;
+    const x = n => circuitBox.left + circuitBox.width * n / 1184;
+    let path;
+    if (mobile) {
+      const circuitX = circuitBox.left + .5;
+      const exitY = sectionBox.bottom + scrollY - start - 28;
+      path = `M ${a} 0 L ${a} ${serviceY - 16} Q ${a} ${serviceY} ${circuitX} ${serviceY} L ${circuitX} ${exitY - 16} Q ${circuitX} ${exitY} ${circuitX + 16} ${exitY} H ${right - 16} Q ${right} ${exitY} ${right} ${exitY + 16} L ${right} ${height}`;
+    } else {
+      path = `M ${a} 0 L ${a} ${serviceY - 16} Q ${a} ${serviceY} ${a + 16} ${serviceY} H ${x(385)} Q ${x(401)} ${serviceY} ${x(401)} ${serviceY + 16} V ${serviceY + 94} Q ${x(401)} ${serviceY + 110} ${x(417)} ${serviceY + 110} H ${x(794)} Q ${x(810)} ${serviceY + 110} ${x(810)} ${serviceY + 126} V ${serviceY + 224} Q ${x(810)} ${serviceY + 240} ${x(826)} ${serviceY + 240} H ${right - 16} Q ${right} ${serviceY + 240} ${right} ${serviceY + 256} L ${right} ${height}`;
+    }
     svg.removeAttribute('hidden');
     svg.setAttribute('viewBox', `0 0 ${mainBox.width} ${height}`);
     svg.setAttribute('width', mainBox.width);
@@ -52,15 +66,21 @@
     fill.setAttribute('d', path);
     length = fill.getTotalLength();
     fill.style.strokeDasharray = `${length} ${length}`;
+    main.classList.add('current-line-ready');
     // Cache the vertical progress of this monotonic path. Scroll rendering
     // interpolates cached points and does not query layout or SVG geometry.
     samples = Array.from({ length: 257 }, (_, i) => {
       const distance = length * i / 256;
       return { y: fill.getPointAtLength(distance).y, distance };
     });
+    // Do not show the unfilled track through Diensten: the circuit should
+    // become visible only as scroll progress reaches it.
+    const entryDistance = distanceAtY(serviceY);
+    const exitDistance = distanceAtY(sectionBox.bottom + scrollY - start);
+    track.style.strokeDasharray = `${entryDistance} ${exitDistance - entryDistance} ${length - exitDistance} ${length}`;
     thresholds = [serviceY, showcaseY];
     points.forEach((point, i) => {
-      point.setAttribute('cx', b);
+      point.setAttribute('cx', i === 0 ? (mobile ? circuitBox.left + .5 : x(4)) : right);
       point.setAttribute('cy', thresholds[i]);
     });
   };
